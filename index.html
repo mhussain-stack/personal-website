@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Mohammad Equebal Hussain - Cloud & Observability Expert</title>
+    <style>
+        :root {
+            --primary-color: #0077cc;
+            --secondary-color: #004080;
+            --accent-color: #00aaff;
+            --light-bg: #f8f9fa;
+            --dark-bg: #212529;
+            --text-color: #333;
+            --light-text: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('/api/placeholder/1200/600') center/cover;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+        }
+        
+        section {
+            padding: 100px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background-color: var(--accent-color);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .about-content {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-img {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-img img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-text {
+            flex: 2;
+            min-width: 300px;
+        }
+        
+        .expertise-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .card-icon {
+            font-size: 48px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        .card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        
+        .experience {
+            background-color: var(--light-bg);
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 3px;
+            background-color: var(--primary-color);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1.5px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: white;
+            border: 4px solid var(--primary-color);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .timeline-item:nth-child(odd)::after {
+            right: -12px;
+        }
+        
+        .timeline-item:nth-child(even)::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .timeline-content p {
+            margin-bottom: 10px;
+        }
+        
+        .content-hub {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .content-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .content-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .content-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .content-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s ease;
+        }
+        
+        .content-card:hover .content-img img {
+            transform: scale(1.1);
+        }
+        
+        .content-text {
+            padding: 20px;
+        }
+        
+        .content-text h3 {
+            margin-bottom: 10px;
+        }
+        
+        .content-text p {
+            margin-bottom: 15px;
+        }
+        
+        .contact {
+            background-color: var(--light-bg);
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .contact-form {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        
+        .map {
+            flex: 1;
+            min-width: 300px;
+            height: 400px;
+            background-color: #ddd;
+            border-radius: 10px;
+        }
+        
+        footer {
+            background-color: var(--dark-bg);
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            display: inline-block;
+            margin: 0 10px;
+            color: white;
+            font-size: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-5px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+            
+            .timeline-item::after {
+                left: 18px;
+            }
+            
+            .timeline-item:nth-child(odd)::after {
+                right: auto;
+                left: 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Dr. M.E. Hussain</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#content">Content</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Dr. Mohammad Equebal Hussain</h1>
+            <p>Cloud Engineer & Observability Expert with 17+ years of experience in Azure, KQL, Prometheus & Power BI</p>
+            <a href="#contact" class="btn">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Me</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="/api/placeholder/400/400" alt="Dr. Mohammad Equebal Hussain">
+                </div>
+                <div class="about-text">
+                    <p>As a seasoned Software Engineer with over 17 years of experience, I specialize in cloud technologies, observability, and advanced data analytics. My expertise lies in designing and implementing scalable observability solutions using Microsoft Azure, KQL, Prometheus, and Power BI.</p>
+                    <p>I have a strong background in building ETL pipelines with Azure Data Factory, optimizing real-time monitoring systems, and ensuring seamless data visualization for actionable insights.</p>
+                    <p>Previously at Microsoft, I contributed to Azure cloud and AI-driven solutions, enhancing system scalability and performance. I have a deep understanding of distributed systems, cloud-native applications, and modern data architectures.</p>
+                    <p>Beyond technical expertise, I have mentored teams, fostered innovation in agile environments, and driven impactful observability strategies. Passionate about leveraging cutting-edge technology, I actively engage in AI initiatives and data-driven decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <div class="container">
+            <div class="section-title">
+                <h2>Areas of Expertise</h2>
+            </div>
+            <div class="expertise-cards">
+                <div class="card">
+                    <div class="card-icon">☁️</div>
+                    <h3>Cloud Technologies</h3>
+                    <p>Extensive experience with Microsoft Azure cloud infrastructure, hybrid solutions, and edge computing platforms.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📊</div>
+                    <h3>Observability</h3>
+                    <p>Designing and implementing scalable observability solutions with real-time insights and performance monitoring.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">📈</div>
+                    <h3>Data Analytics</h3>
+                    <p>Advanced analytics using KQL, Power BI dashboards, and ETL pipelines for actionable business intelligence.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🔒</div>
+                    <h3>Security</h3>
+                    <p>Data security implementation using VNets, VPN Gateways, and Network Security Groups for enterprise-grade protection.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">⚙️</div>
+                    <h3>System Design</h3>
+                    <p>Architecture of microservices, distributed systems, and cloud-native applications for optimal performance.</p>
+                </div>
+                <div class="card">
+                    <div class="card-icon">🧠</div>
+                    <h3>AI Integration</h3>
+                    <p>Implementing AI-driven solutions to enhance system capabilities and enable intelligent decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-title">
+                <h2>Professional Journey</h2>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Microsoft</h3>
+                        <p>Senior Software Engineer</p>
+                        <p>March 2022 - January 2025</p>
+                        <p>Designed and deployed edge computing platforms for hybrid cloud infrastructures using Azure Data Factory, Azure Data Explorer and Azure DevOps ADO.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Digital Guardians</h3>
+                        <p>Principal Software Engineer</p>
+                        <p>March 2020 - March 2022</p>
+                        <p>Developed a Data Loss Prevention DLP SDK for Cisco ESA, enhancing data security.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>SONUS</h3>
+                        <p>Principal Software Engineer</p>
+                        <p>March 2019 - March 2020</p>
+                        <p>Architected and implemented a telecom security platform using microservices and Docker.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>HCLTech</h3>
+                        <p>Senior Consultant</p>
+                        <p>April 2016 - March 2019</p>
+                        <p>Enhanced Cisco Web Security Appliance WSA modules focusing on proxy services.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Content Hub</h2>
+            </div>
+            <div class="content-hub">
+                <div class="content-card">
+                    <div class="content-img">
+                        <img src="/api/placeholder/400/200" alt="Azure Cloud Architecture">
+                    </div>
+                    <div class="content-text">
+                        <h3>Azure Cloud Architecture Best Practices</h3>
+                        <p>Learn how to design scalable and robust cloud architectures using Microsoft Azure.</p>
+                        <a href="#" class="btn">Read Article</a>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="content-img">
+                        <img src="/api/placeholder/400/200" alt="KQL Tutorials">
+                    </div>
+                    <div class="content-text">
+                        <h3>Advanced KQL Query Techniques</h3>
+                        <p>Master Kusto Query Language for powerful data analytics and monitoring insights.</p>
+                        <a href="#" class="btn">Watch Video</a>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="content-img">
+                        <img src="/api/placeholder/400/200" alt="Power BI Dashboards">
+                    </div>
+                    <div class="content-text">
+                        <h3>Building Effective Power BI Dashboards</h3>
+                        <p>Step-by-step guide to creating insightful data visualizations for business intelligence.</p>
+                        <a href="#" class="btn">Read Guide</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Get In Touch</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+                <div class="map">
+                    <!-- Interactive map would be embedded here -->
+                    <img src="/api/placeholder/600/400" alt="Map" style="width:100%; height:100%; object-fit:cover;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo">Dr. Mohammad Equebal Hussain</div>
+            <p>Software professional with 17+ years in cloud, observability & data analytics.</p>
+            <div class="social-links">
+                <a href="#">LinkedIn</a>
+                <a href="#">Twitter</a>
+                <a href="#">GitHub</a>
+            </div>
+            <p>&copy; 2025 Dr. Mohammad Equebal Hussain. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+Last edited 5 minutes ago
